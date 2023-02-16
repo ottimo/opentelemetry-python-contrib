@@ -78,6 +78,7 @@ _REQ_PROV_WRITE_CAP = (("ProvisionedThroughput", "WriteCapacityUnits"), None)
 
 _REQ_CONSISTENT_READ = ("ConsistentRead", None)
 _REQ_PROJECTION = ("ProjectionExpression", None)
+_REQ_UPDATE = ("UpdateExpression", None)
 _REQ_ATTRS_TO_GET = ("AttributesToGet", None)
 _REQ_LIMIT = ("Limit", None)
 _REQ_SELECT = ("Select", None)
@@ -300,6 +301,7 @@ class _OpScan(_DynamoDbOperation):
 class _OpUpdateItem(_DynamoDbOperation):
     start_attributes = {
         SpanAttributes.AWS_DYNAMODB_TABLE_NAMES: _REQ_TABLE_NAME,
+        "db.update_expression": _REQ_UPDATE,
     }
     response_attributes = {
         SpanAttributes.AWS_DYNAMODB_CONSUMED_CAPACITY: _RES_CONSUMED_CAP_SINGLE,
