@@ -18,7 +18,7 @@ def _instrument(
 ):
     def instrumented_open(wrapped, instance, args, kwargs):
          with tracer.start_as_current_span(
-            "open", kind=SpanKind.CLIENT
+            "io", kind=SpanKind.CLIENT
         ) as span:
             span.set_attribute("open", args[0])
             response = wrapped(*args, **kwargs)
