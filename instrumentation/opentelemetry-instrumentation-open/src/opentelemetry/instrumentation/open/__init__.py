@@ -3,6 +3,7 @@ from typing import Collection
 
 from opentelemetry.instrumentation.instrumentor import BaseInstrumentor
 
+import io
 import wrapt
 
 from opentelemetry import context
