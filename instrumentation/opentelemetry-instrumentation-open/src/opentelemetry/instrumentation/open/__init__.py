@@ -25,7 +25,7 @@ def _instrument(
 
     wrapt.wrap_function_wrapper(
         __name__,
-        "open",
+        "io.open",
         instrumented_open,
     )
 class OpenInstrumentor(BaseInstrumentor):
@@ -41,4 +41,4 @@ class OpenInstrumentor(BaseInstrumentor):
         )
 
     def _uninstrument():
-        unwrap(__name__, "open")
+        unwrap(__name__, "io.open")
